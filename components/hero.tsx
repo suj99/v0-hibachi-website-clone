@@ -20,7 +20,7 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight text-balance drop-shadow-2xl">
-          Hibachi at Home – Book a Private Chef Anywhere in the U.S.
+          Backyard Hibachi For You – Book a Private Chef Anywhere in the U.S.
         </h1>
         <Button 
           size="lg" 

@@ -1,9 +1,11 @@
-'use client'
+"use client"
 
-import Link from 'next/link'
-import { Facebook, Instagram } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { useState } from 'react'
+import Link from "next/link"
+import Image from "next/image"
+import { Facebook, Instagram, Menu } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { useState } from "react"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 export function Header() {
   const [showBanner, setShowBanner] = useState(true)
@@ -13,11 +15,11 @@ export function Header() {
       {showBanner && (
         <div className="bg-secondary text-secondary-foreground py-3 px-4 text-center text-sm relative">
           <p>
-            Don&apos;t forget follow us on{' '}
+            Don&apos;t forget follow us on{" "}
             <Link href="#" className="underline hover:opacity-80">
               Instagram
-            </Link>{' '}
-            and{' '}
+            </Link>{" "}
+            and{" "}
             <Link href="#" className="underline hover:opacity-80">
               Facebook
             </Link>
@@ -36,7 +38,7 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <img src="/logo.svg" alt="Hibachi with Us" className="h-12" />
+            <Image src="/logo.svg" alt="Hibachi with Us" width={150} height={60} className="h-12 w-auto" />
           </Link>
 
           {/* Navigation */}
@@ -62,7 +64,7 @@ export function Header() {
           </nav>
 
           {/* Social icons and CTA */}
-          <div className="flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <Link href="#" className="text-foreground hover:text-primary transition-colors">
               <Facebook className="w-5 h-5" />
             </Link>
@@ -75,6 +77,41 @@ export function Header() {
               </Button>
             </Link>
           </div>
+
+          {/* Mobile Menu */}
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="lg:hidden">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Open menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent>
+              <div className="flex flex-col gap-6 mt-8">
+                <Link href="/" className="text-lg font-medium hover:text-primary">
+                  Home
+                </Link>
+                <Link href="/faq" className="text-lg font-medium hover:text-primary">
+                  FAQ
+                </Link>
+                <Link href="/estimation" className="text-lg font-medium hover:text-primary">
+                  Estimation
+                </Link>
+                <Link href="/locations" className="text-lg font-medium hover:text-primary">
+                  Locations
+                </Link>
+                <Link href="/gallery" className="text-lg font-medium hover:text-primary">
+                  Gallery
+                </Link>
+                <Link href="/contact-us" className="text-lg font-medium hover:text-primary">
+                  Contact Us
+                </Link>
+                <Link href="/book-online">
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Book Online</Button>
+                </Link>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </header>
     </>
