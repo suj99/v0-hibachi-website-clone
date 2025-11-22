@@ -69,12 +69,16 @@ export function Header() {
             <Link href="#" className="text-foreground hover:text-primary transition-colors">
               <Instagram className="w-5 h-5" />
             </Link>
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 font-semibold">
-              Book Online
-            </Button>
+            <Link href="/book-online">
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 font-semibold">
+                Book Online
+              </Button>
+            </Link>
           </div>
         </div>
       </header>
     </>
   )
 }
+
+export default Header
