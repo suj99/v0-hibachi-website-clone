@@ -41,7 +41,7 @@ export function VideoGallery() {
               {index === 3 && (
                 <div className="absolute bottom-0 left-0 right-0 bg-black/80 p-4 text-white text-center">
                   <p className="font-bold">book your next event with us</p>
-                  <p className="text-sm">at hibachiwithus.com</p>
+                  <p className="text-sm">at backyardhibachi4u.com</p>
                 </div>
               )}
             </div>

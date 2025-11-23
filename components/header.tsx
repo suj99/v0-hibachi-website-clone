@@ -16,11 +16,14 @@ export function Header() {
         <div className="bg-secondary text-secondary-foreground py-3 px-4 text-center text-sm relative">
           <p>
             Don&apos;t forget follow us on{" "}
-            <Link href="#" className="underline hover:opacity-80">
+            <Link href="https://www.instagram.com/backyard_hibachi_4u" className="underline hover:opacity-80">
               Instagram
             </Link>{" "}
             and{" "}
-            <Link href="#" className="underline hover:opacity-80">
+            <Link
+              href="https://www.facebook.com/people/Backyard-Hibachi-4U/61564969375741/"
+              className="underline hover:opacity-80"
+            >
               Facebook
             </Link>
           </p>
@@ -65,10 +68,16 @@ export function Header() {
 
           {/* Social icons and CTA */}
           <div className="hidden lg:flex items-center gap-4">
-            <Link href="#" className="text-foreground hover:text-primary transition-colors">
+            <Link
+              href="https://www.facebook.com/people/Backyard-Hibachi-4U/61564969375741/"
+              className="text-foreground hover:text-primary transition-colors"
+            >
               <Facebook className="w-5 h-5" />
             </Link>
-            <Link href="#" className="text-foreground hover:text-primary transition-colors">
+            <Link
+              href="https://www.instagram.com/backyard_hibachi_4u"
+              className="text-foreground hover:text-primary transition-colors"
+            >
               <Instagram className="w-5 h-5" />
             </Link>
             <Link href="/book-online">

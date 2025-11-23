@@ -1,46 +1,50 @@
-'use client'
+"use client"
 
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react'
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
+import { Star, ChevronLeft, ChevronRight } from "lucide-react"
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 const reviews = [
   {
-    name: 'daniel graves',
-    text: 'Steven did great!',
+    name: "Google Reviewer",
+    text: "I wanted to do something different for my husband's 50th birthday. We invited friends and family and we were a total of 16 people. All I had to do was decorate my backyard a little bit and provide table ware/drinks. Lee, our hibachi chef...",
     rating: 5,
-    date: '1 day ago',
+    date: "2 months ago",
     verified: true,
   },
   {
-    name: 'Scottie Hervey',
-    text: 'Daniel was great!',
+    name: "Razina Dixon",
+    text: "What an amazing time we had! Jason was our Chef for our lady es Bible Study Brunch! We had great weather and our hibachi experience did Not disappoint. It was just like being at the restaurant. As you can. See from the photos, we had a ...",
     rating: 5,
-    date: '2 days ago',
+    date: "2 months ago",
     verified: true,
   },
   {
-    name: 'HPPH22',
-    text: 'Seven was great!',
+    name: "Robin Magrin",
+    text: "Had the BEST hibachi night at the Airbnb — the chef, Ryan, brought all the energy, made it so fun, and the food was next level. The vibes were amazing from start to finish, and the sake gun had everyone laughing and cheering. Such a unique and unforgettable experience — highly recommend if you want dinner that feels like a party!",
     rating: 5,
-    date: '2 days ago',
+    date: "a month ago",
     verified: true,
   },
   {
-    name: 'Sterling Joiner',
-    text: 'Had the best experience! Steven Ching and Lee were the most fun and gave my...',
+    name: "Paige Chao",
+    text: "Ryan had great hospitality and was so attentive during my friend's bachelorette weekend! It was so much fun and the food was so delicious! I would definitely book with Backyard Hibachi 4 U and request for Ryan! Thank you Ryan!",
     rating: 5,
-    date: '2 days ago',
+    date: "2 months ago",
     verified: true,
   },
   {
-    name: 'Alyssa House',
-    text: 'The best! We had so much fun, the food was delish, and the sake was flowing!',
+    name: "Janine",
+    text: "A1 Jimmy was AMAZING!! We had such a great and fun experience! Jimmy was interactive, funny, and all around awesome!! Would 10/10 have A1 Jimmy back again!!",
     rating: 5,
-    date: '2 days ago',
+    date: "5 months ago",
     verified: true,
   },
 ]
+
+const GOOGLE_REVIEW_LINK =
+  "https://www.google.com/maps/place/Backyard+Hibachi+4U/@40.4461756,-74.2518857,17z/data=!3m1!4b1!4m6!3m5!1s0xc56bee21a488133:0x7442ecaa3c76adf2!8m2!3d40.4461756!4d-74.2518857"
 
 export function GoogleReviews() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -73,12 +77,14 @@ export function GoogleReviews() {
                     <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <span className="text-gray-600">(1,169)</span>
+                <span className="text-gray-600">(Verified Reviews)</span>
               </div>
             </div>
           </div>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md">
-            Review us on Google
+          <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md">
+            <Link href={GOOGLE_REVIEW_LINK} target="_blank" rel="noopener noreferrer">
+              Review us on Google
+            </Link>
           </Button>
         </div>
 
@@ -145,7 +151,7 @@ export function GoogleReviews() {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`w-2 h-2 rounded-full transition-colors ${
-                index === currentIndex ? 'bg-gray-800' : 'bg-gray-300'
+                index === currentIndex ? "bg-gray-800" : "bg-gray-300"
               }`}
               aria-label={`Go to review ${index + 1}`}
             />
