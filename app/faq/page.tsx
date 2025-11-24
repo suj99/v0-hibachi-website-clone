@@ -4,9 +4,9 @@ import { Footer } from "@/components/footer"
 export default function FAQPage() {
   const faqs = [
     {
-      question: "What is Hibachi with Us?",
+      question: "What is Backyard Hibachi For You?",
       answer:
-        "Hibachi with Us brings the fun, entertainment and flavors of Japanese hibachi cooking to your backyard with our best-rated mobile hibachi catering service.",
+        "Backyard Hibachi For You brings the fun, entertainment and flavors of Japanese hibachi cooking to your backyard with our best-rated mobile hibachi catering service.",
     },
     {
       question: "What areas do you serve?",
