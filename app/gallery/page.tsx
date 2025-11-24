@@ -74,8 +74,8 @@ export default function GalleryPage() {
               <h2 className="font-bold text-4xl text-black mb-4">Follow Our Journey on Instagram</h2>
               <p className="text-gray-700 text-lg">
                 Tag us{" "}
-                <a href="https://instagram.com/hibachiwithus" className="text-red-500 font-bold hover:underline">
-                  @hibachiwithus
+                <a href="https://instagram.com/backyard_hibachi_4u" className="text-red-500 font-bold hover:underline">
+                  @backyard_hibachi_4u
                 </a>{" "}
                 in your posts!
               </p>
@@ -108,7 +108,7 @@ export default function GalleryPage() {
             {/* Social Media CTA */}
             <div className="text-center">
               <a
-                href="https://instagram.com/hibachiwithus"
+                href="https://instagram.com/backyard_hibachi_4u"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-red-500 text-white font-bold px-10 py-4 hover:bg-red-600 transition-colors"

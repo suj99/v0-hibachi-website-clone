@@ -10,13 +10,13 @@ export function Footer() {
           {/* Logo and description */}
           <div>
             <div className="mb-6">
-              <Image src="/logo.svg" alt="Hibachi with Us" width={200} height={80} className="h-16 w-auto" />
+              <Image src="/logo.svg" alt="Backyard Hibachi For You" width={80} height={80} className="h-16 w-auto" />
             </div>
             <p className="text-gray-700 leading-relaxed">
-              Backyard Hibachi For You brings the fun, entertainment and flavors of Japanese hibachi cooking to your backyard
-              with our best-rated mobile hibachi catering service in State of CT, NY, NJ, PA, DE, MD, Washington DC,
-              VA(Virginia Beach, Richmond), NC(Raleigh) AZ(Phoenix, Tucson), FL(Miami, Orlando), TX(Dallas, Austin,
-              Houston, San Antonio), Philadelphia, DMV and all surrounding areas
+              Backyard Hibachi For You brings the fun, entertainment and flavors of Japanese hibachi cooking to your
+              backyard with our best-rated mobile hibachi catering service in State of CT, NY, NJ, PA, DE, MD,
+              Washington DC, VA(Virginia Beach, Richmond), NC(Raleigh) AZ(Phoenix, Tucson), FL(Miami, Orlando),
+              TX(Dallas, Austin, Houston, San Antonio), Philadelphia, DMV and all surrounding areas
             </p>
           </div>
 
@@ -57,7 +57,9 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="text-center pt-8 border-t border-gray-200">
-          <p className="text-sm text-gray-500">© {new Date().getFullYear()} Backyard Hibachi For You. All rights reserved.</p>
+          <p className="text-sm text-gray-500">
+            © {new Date().getFullYear()} Backyard Hibachi For You. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

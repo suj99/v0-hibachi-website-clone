@@ -41,7 +41,7 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <Image src="/logo.svg" alt="Hibachi with Us"  height={150} className="h-12 w-auto" />
+            <Image src="/logo.svg" alt="Backyard Hibachi For You" width={90} height={90} className="h-12 w-auto" />
           </Link>
 
           {/* Navigation */}
