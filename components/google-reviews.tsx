@@ -1,7 +1,7 @@
 "use client"
 
 import { Star, ChevronLeft, ChevronRight } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
@@ -48,6 +48,23 @@ const GOOGLE_REVIEW_LINK =
 
 export function GoogleReviews() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [slidesPerView, setSlidesPerView] = useState(1)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setSlidesPerView(1) // mobile: 1 slide
+      } else if (window.innerWidth < 1024) {
+        setSlidesPerView(2) // tablet: 2 slides
+      } else {
+        setSlidesPerView(5) // desktop: 5 slides
+      }
+    }
+
+    handleResize() // Initial call
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % reviews.length)
@@ -57,31 +74,33 @@ export function GoogleReviews() {
     setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length)
   }
 
+  const slideWidthPercent = 100 / slidesPerView
+
   return (
     <section className="py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">What our customers say</h2>
 
         {/* Google rating header */}
-        <div className="bg-gray-100 rounded-lg p-8 mb-8 flex items-center justify-between">
-          <div className="flex items-center gap-4">
+        <div className="bg-gray-100 rounded-lg p-6 sm:p-8 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
             <div>
-              <div className="flex items-center gap-2 mb-2">
+              <div className="flex items-center justify-center sm:justify-start gap-2 mb-2">
                 <span className="text-2xl font-bold">Google</span>
                 <span className="text-gray-600">Reviews</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center sm:justify-start gap-2">
                 <span className="text-3xl font-bold">5.0</span>
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <span className="text-gray-600">(Verified Reviews)</span>
+                <span className="text-gray-600 text-sm sm:text-base">(Verified Reviews)</span>
               </div>
             </div>
           </div>
-          <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md">
+          <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md w-full sm:w-auto">
             <Link href={GOOGLE_REVIEW_LINK} target="_blank" rel="noopener noreferrer">
               Review us on Google
             </Link>
@@ -93,10 +112,10 @@ export function GoogleReviews() {
           <div className="overflow-hidden">
             <div
               className="flex transition-transform duration-300 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 20}%)` }}
+              style={{ transform: `translateX(-${currentIndex * slideWidthPercent}%)` }}
             >
               {reviews.map((review, index) => (
-                <div key={index} className="w-1/5 flex-shrink-0 px-2">
+                <div key={index} className="flex-shrink-0 px-2" style={{ width: `${slideWidthPercent}%` }}>
                   <div className="bg-white rounded-lg p-6 shadow-sm h-full">
                     <div className="flex gap-1 mb-3">
                       {[...Array(5)].map((_, i) => (
@@ -130,17 +149,17 @@ export function GoogleReviews() {
           {/* Navigation buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-gray-800 text-white p-2 rounded-full shadow-lg hover:bg-gray-700"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 bg-gray-800 text-white p-2 rounded-full shadow-lg hover:bg-gray-700 z-10"
             aria-label="Previous reviews"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-gray-800 text-white p-2 rounded-full shadow-lg hover:bg-gray-700"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 bg-gray-800 text-white p-2 rounded-full shadow-lg hover:bg-gray-700 z-10"
             aria-label="Next reviews"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
         </div>
 
